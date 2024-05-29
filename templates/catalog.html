@@ -1,0 +1,75 @@
+<!-- Комментарий -->
+{% comment %} ФОТО В SCC: background-image: url(../media/name001.png);    В html  <img src="media/name01.png" alt>    В html django <img src="{% static "media/name1.png"  %}"/>  {% endcomment %}
+
+{% load static %}                                                                           <!-- +CSS -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static "CSS/style1.css" %}" />                         <!-- +CSS --> 
+</head>
+<body>
+  <h2>Каталог книг</h2>
+
+    <div class="wraper">
+      {% for i in bk %}
+      <a href="{% url "prod" i.id %}">
+        <div class="products">
+          <img class="img" src="{{ i.image.url }}" alt="{{ i.name }}">
+          <p class="info" >{{ i.name }}</p>
+          <p class="info" >{{i.author}}</p>
+          <p class="info" >{{i.date_of_birth}}</p><br>
+        </div>
+      </a>
+        {% endfor %}
+    </div>
+  
+    
+    <div>
+        {% block content %}               <!-- начало -->
+        {% endblock %}
+    </div> 
+        <footer class="footer">              <!-- футер -->              
+            <div class="footer__addr">
+              <h1 class="footer__logo">Книгабел</h1>  
+              <h2>книжный магазин</h2>
+            </div>
+              <ul class="footer__nav">
+
+              <ul class="nav__ul nav__ul--extra">
+                <h2 class="nav__title">Социальные сети:</h2>
+
+                
+
+                <li><a href="#">
+                  <img style="width:40px; height:40px;" alt="здесь фото" src="{% static 'media\foto01.png' %}"/>Instagramm</a>
+                </li>
+                  
+                <li><a href="#">
+                  <img style="width:40px; height:40px;" src="{% static 'media\foto02.png' %}"/>Facebook </a>
+                </li>
+
+                <li><a href="#">
+                  <img style="width:40px; height:40px;" src="{% static 'media\foto03.png' %}"/>VK</a>
+                </li>
+                
+
+                <li class="nav__item">
+                  <h2 class="nav__title">Адрес:</h2>
+                  <li class="nav__ul"><a href="#">г. Минск, пр-т Независимости, 5</a> </li>
+                  
+                  <h2 class="nav__title">Контакты:</h2>
+                  <li class="nav__ul"><a href="#">80292505050</a> </li> 
+
+
+
+            <div class="legal">
+              <p> <a class="footer__btn" href="bookstore2024@gmail.com">&#128386; E-mail bookstore2024@gmail.com </a></p>
+            </div>
+        </footer>
+</body>
+</html>
+
+

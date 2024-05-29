@@ -1,0 +1,40 @@
+<!-- Комментарий -->
+{% extends "catalog.html" %}   <!-- Указываем название из какого html берем вставляемую информацию.наследование(extends) -->
+
+{% block content %}    <!-- начало вставка контента-->
+
+<div class="vitrina">
+    <div class="wrapper">
+        <div>
+            <div class="info__author">
+                {{book.author.name}}
+                {{book.author.second_name}}
+                {{book.author.surname}}
+            </div>
+            <div class="info__book">
+                {{book.info}}
+            </div>
+        </div>
+        <div class="book">
+            <img class="filter_img" src="{{book.image.url}}" alt="">
+            <div>
+               Книга: {{book.name}}
+            </div>
+            <div>
+                Год издания: {{book.date_of_birth}}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<button class="btn"><a href="{%url 'catalog' %}">Вернуться в каталог</a></button> 
+
+{% endblock content %}                             <!-- вставка контента -->
+
+
+
+
+
+
+
